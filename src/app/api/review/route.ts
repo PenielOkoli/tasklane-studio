@@ -35,6 +35,9 @@ export function GET(request: Request) {
     const session = existing ?? freshSession();
     return respond(readReview(request, session.id), existing ? {} : { cookie: sessionCookie(session) });
   } catch (error) {
+    if (error instanceof ActionError && error.status === 401) {
+      return respond(null, { cookie: sessionCookie(freshSession()) });
+    }
     return respond(null, {
       status: error instanceof ActionError ? error.status : 500,
       error: error instanceof ActionError ? error.message : 'Unable to load this workspace.',

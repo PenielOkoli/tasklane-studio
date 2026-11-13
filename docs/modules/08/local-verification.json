@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-11-13T08:10:46.657Z",
+  "origin": "http://localhost:3020",
+  "withAI": false,
+  "passed": true,
+  "results": [
+    {
+      "name": "Studio, Agent, Knowledge and Board pages",
+      "passed": true,
+      "detail": {
+        "providerConfigured": false
+      }
+    },
+    {
+      "name": "origin, strict inputs, provider consent",
+      "passed": true
+    },
+    {
+      "name": "practice handoffs, three positions, required human decision, synthesis and refresh",
+      "passed": true,
+      "detail": {
+        "positions": [
+          "investigate",
+          "pilot",
+          "hold"
+        ],
+        "outputs": {
+          "research": {
+            "output": {
+              "position": "investigate",
+              "recommendation": "Confirm where new users struggle before expanding the rollout.",
+              "rationale": "Three interviewees missed the first useful action. Five existing customers are too small a sample to estimate conversion.",
+              "uncertainty": "There are no results from first-time users or measured pilot outcomes.",
+              "sourceIds": [
+                "research-1",
+                "research-2"
+              ]
+            },
+            "at": 1794557446278
+          },
+          "design": {
+            "output": {
+              "position": "pilot",
+              "recommendation": "Prepare a small pilot around a clearer first action and fewer required fields.",
+              "rationale": "A narrow experience gives the team a way to test the handoff finding with first-time users.",
+              "uncertainty": "The research does not tell us which field changes will help most.",
+              "sourceIds": [
+                "research-1"
+              ]
+            },
+            "at": 1794557446326
+          },
+          "testing": {
+            "output": {
+              "position": "hold",
+              "recommendation": "Hold distribution until the mobile and accessibility checks pass.",
+              "rationale": "The release brief requires the mobile review and quality checklist. The sample gives us no passing results.",
+              "uncertainty": "The board and brief do not establish whether blockers have been fixed.",
+              "sourceIds": [
+                "brief-2",
+                "quality-1",
+                "quality-2"
+              ]
+            },
+            "at": 1794557446375
+          }
+        },
+        "humanDecision": {
+          "position": "hold",
+          "reason": "Check mobile and keyboard quality before distributing the pilot.",
+          "at": 1794557446535
+        },
+        "synthesis": {
+          "output": {
+            "nextStep": "Run the mobile and keyboard checks, record blockers on the board and bring the results back to the project lead.",
+            "owner": "Testing",
+            "openRisk": "Mobile and keyboard checks still need recorded results. Discovery covered only five existing customers."
+          },
+          "at": 1794557446582
+        }
+      }
+    }
+  ]
+}
